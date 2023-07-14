@@ -1,0 +1,15 @@
+'''
+Input : list1 = [10, 20, 4]
+Output : 20
+'''
+
+list1 = [10, 20, 4]
+print(max(list1))
+
+'''
+Input : list2 = [20, 10, 20, 4, 100]
+Output : 100
+'''
+
+list2 = [20, 10, 20, 4, 100]
+print(max(list2))

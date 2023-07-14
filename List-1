@@ -1,0 +1,8 @@
+list = [1, 6, 3, 5, 3, 4]
+
+i=3
+
+if i in list:
+    print("True")
+else:
+    print("false")
