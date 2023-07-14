@@ -1,0 +1,9 @@
+# 문제 풀면서 함수로 만들어주세요
+def check_element_in_list(i, lst): # 변수 이름 작성할 때 list, tuple, set등 built-in 함수로 이미 있어서 쓰면 안됩니다. list -> lst
+    if i in lst:
+        return True
+    else:
+        return False # Boolean으로 돌려주기
+
+print("3 is in [1, 6, 3, 5, 3, 4]:", check_element_in_list(3, [1, 6, 3, 5, 3, 4]))
+print("7 is in [1, 6, 3, 5, 3, 4]:", check_element_in_list(7, [1, 6, 3, 5, 3, 4]))
