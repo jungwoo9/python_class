@@ -1,0 +1,17 @@
+'''
+Input:
+{'ravi': 10, 'rajnish': 9, 'sanjeev': 15, 'yash': 2, 'suraj': 32}
+
+Output: 
+{'rajnish': 9, 'ravi': 10, 'sanjeev': 15, 'suraj': 32, 'yash': 2}
+'''
+
+myDict = {'ravi': 10, 'rajnish': 9,'sanjeev': 15, 'yash': 2, 'suraj': 32}
+ 
+myKeys = list(myDict.keys()) 
+# myDict를 list로 정의? keys 라는 함수를 몰랐음 왜 쓰는지도 잘 모르겠음. 
+# 단어들을 뽑아내서 그것을 기준으로 하려는것 같은데, 처음 문제만 봤을때는 알수가 없었다.
+myKeys.sort()
+sorted_dict = {i: myDict[i] for i in myKeys}
+ 
+print(sorted_dict)

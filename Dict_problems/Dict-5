@@ -1,0 +1,33 @@
+'''
+Input : test_dict = {‘Gfg’ : 4, ‘best’ : 9}, test_list = [8, 2] 
+Output : {8: {‘Gfg’: 4}, 2: {‘best’: 9}} 
+Explanation : Index-wise key-value pairing from list [8] to dict {‘Gfg’ : 4} and so on. 
+Input : test_dict = {‘Gfg’ : 4}, test_list = [8] 
+Output : {8: {‘Gfg’: 4}} 
+Explanation : Index-wise key-value pairing from list [8] to dict {‘Gfg’ : 4}.
+'''
+
+# Python3 code to demonstrate working of
+# Nested Dictionary with List
+# Using loop + zip()
+ 
+# initializing dictionary and list
+test_dict = {'Gfg' : 4, 'is' : 5, 'best' : 9}
+test_list = [8, 3, 2]
+ 
+# printing original dictionary and list
+print("The original dictionary is : " + str(test_dict))
+print("The original list is : " + str(test_list))
+ 
+# using zip() and loop to perform
+# combining and assignment respectively.
+res = {}
+for key, ele in zip(test_list, test_dict.items()):
+    res[key] = dict([ele])
+         
+# printing result
+print("The mapped dictionary : " + str(res))
+
+# 페어링을 단순하게 이해해서 그냥 둘을 + 시키는정도로 생각
+# 그래서 이 문제를 왜 푸는지 어떤걸 원하는지 모르겠었음
+# 답을 봐도 사실 이해가 잘 가지않음

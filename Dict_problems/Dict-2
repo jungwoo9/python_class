@@ -1,0 +1,34 @@
+'''
+Input : test_list = [4, 6, 6, 4, 2, 2, 4, 8, 5, 8] 
+Output : {4: [4, 4, 4], 6: [6, 6], 2: [2, 2], 8: [8, 8], 5: [5]} 
+Explanation : Similar items grouped together on occurrences. 
+
+Input : test_list = [7, 7, 7, 7] 
+Output : {7 : [7, 7, 7, 7]} 
+Explanation : Similar items grouped together on occurrences.
+'''
+
+# Python3 code to demonstrate working of
+# Group Similar items to Dictionary Values List
+# Using defaultdict + loop
+from collections import defaultdict
+ 
+# initializing list
+test_list = [4, 6, 6, 4, 2, 2, 4, 4, 8, 5, 8]
+ 
+# printing original list
+print("The original list : " + str(test_list))
+ 
+# using defaultdict for default list
+res = defaultdict(list)
+for ele in test_list:
+     
+    # appending Similar values
+    res[ele].append(ele)
+ 
+# printing result
+print("Similar grouped dictionary : " + str(dict(res)))
+
+# 문제를 이해하고나서, 뭘 써야할지 아예 감이 안왔음. 
+# defaultdict 를 전혀 몰랐었음. 
+# 답을 보고나서 검색했지만 이해하고 활용하는 것에 대해서 감이 안옴
