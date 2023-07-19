@@ -1,0 +1,5 @@
+#111
+
+anything = input("아무거나")
+print(anything, anything)
+

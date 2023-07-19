@@ -1,0 +1,13 @@
+#091
+inventory = {'메로나' : [300, 20], "비비빅" : [400, 3], "죠스바" : [250, 100]}
+print(inventory)
+
+#092
+print(inventory.get('메로나'(0)))
+
+#093
+print(inventory("메로나"[1]))
+
+#094
+inventory = {"월드콘" : [500, 7]}
+print(inventory)

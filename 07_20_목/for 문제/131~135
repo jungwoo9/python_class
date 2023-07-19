@@ -1,0 +1,29 @@
+#131
+'''
+사과
+귤
+과일
+'''
+
+#132 
+'''
+#####
+#####
+#####
+'''
+
+#133
+lst = ["A", "B", "C"]
+print(lst[0])
+print(lst[1])
+print(lst[2])
+
+#134
+print("출력 : ", lst[0])
+print("출력 : ", lst[1])
+print("출력 : ", lst[2])
+
+#135
+l1 = lst.index(0)
+l2 = lower.l1
+print(l2)

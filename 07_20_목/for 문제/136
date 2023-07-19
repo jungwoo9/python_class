@@ -1,0 +1,35 @@
+#136
+'''
+변수 = 10
+print(변수)
+변수 = 20
+print(변수)
+변수 = 30
+print(변수)
+'''
+
+lst = [10, 20, 30]
+
+for 변수 in lst:
+    print(변수)
+
+#137 - 136과 같음
+'''
+print(10)
+print(20)
+print(30)
+'''
+
+#138
+'''
+print(10)
+print("-------")
+print(20)
+print("-------")
+print(30)
+print("-------")
+'''
+for 변수 in lst:
+    print(변수)
+    print("++++")
+    

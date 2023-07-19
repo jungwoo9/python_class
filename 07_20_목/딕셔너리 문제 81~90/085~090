@@ -1,0 +1,29 @@
+#085
+icecream_name = {'메로나' : 1000, '폴라포' : 1200, '빵빠레' : 1800}
+print(icecream_name)
+
+#086
+icecream_name['죠스바'] = 1200
+icecream_name['월드콘'] = 1500
+print(icecream_name)
+
+#087
+print("메로나 가격 : ", icecream_name['메로나'])
+
+#088
+icecream_name= {'메로나' : 1300}
+print(icecream_name)
+
+#089
+del icecream_name['메로나']
+print(icecream_name)
+
+#090 : 누가바가 없어서
+'''
+>> icecream = {'폴라포': 1200, '빵빠레': 1800, '월드콘': 1500, '메로나': 1000}
+>> icecream['누가바']
+Traceback (most recent call last):
+  File "<pyshell#69>", line 1, in <module>
+    icecream['누가바']
+KeyError: '누가바'
+'''

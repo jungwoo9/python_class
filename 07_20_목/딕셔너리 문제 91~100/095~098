@@ -1,0 +1,18 @@
+#095
+icecream = {'탱크보이': 1200, '폴라포': 1200, '빵빠레': 1800, '월드콘': 1500, '메로나': 1000}
+icecream_key = list(icecream.keys())
+print(icecream_key)
+
+#096
+icecream_values = list(icecream.values())
+print(icecream_values)
+
+#097
+print(sum(icecream_values))
+
+#098
+new_product = {'팥빙수':2700, '아맛나':1000}
+
+icecream.update(new_product)
+print(icecream)
+

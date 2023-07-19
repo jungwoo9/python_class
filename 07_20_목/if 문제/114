@@ -1,0 +1,7 @@
+#114
+ip = input("입력값 : ")
+op = int(ip) + 20
+if op > 255:
+    print(255)
+else:
+    print(op)
