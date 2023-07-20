@@ -2,12 +2,21 @@
 inventory = {'메로나' : [300, 20], "비비빅" : [400, 3], "죠스바" : [250, 100]}
 print(inventory)
 
+"""
+메로나 가격 출력하기
+"""
 #092
-print(inventory.get('메로나'(0)))
+# print(inventory.get('메로나'(0)))
 
+"""
+메로나 재고 출력하기
+"""
 #093
-print(inventory("메로나"[1]))
+# print(inventory("메로나"[1]))
 
+"""
+월드콘 추가하기
+"""
 #094
 inventory = {"월드콘" : [500, 7]}
 print(inventory)

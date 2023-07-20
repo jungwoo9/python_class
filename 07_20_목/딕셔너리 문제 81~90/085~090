@@ -10,6 +10,9 @@ print(icecream_name)
 #087
 print("메로나 가격 : ", icecream_name['메로나'])
 
+"""
+value값 수정하기
+"""
 #088
 icecream_name= {'메로나' : 1300}
 print(icecream_name)
