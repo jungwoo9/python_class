@@ -33,3 +33,18 @@ for 변수 in lst:
     print(변수)
     print("++++")
     
+#139
+'''
+print("++++")
+print(10)
+print(20)
+print(30)
+'''
+print("++++")
+for 변수 in lst:
+    print(변수)
+
+#140
+for 변수 < 4:
+    print("-------")
+
