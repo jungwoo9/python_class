@@ -14,6 +14,9 @@ print(stock)
 stock = {"10/10" : [80, 110, 70, 90], "10/11" : [210, 230, 190, 200]}
 print(stock)
 
+"""
+연속된 for loop
+"""
 #185
 for 호 in apart:
     print(호)

@@ -44,6 +44,9 @@ print("++++")
 for 변수 in lst:
     print(변수)
 
+"""
+range()
+"""
 #140
 for 변수 < 4:
     print("-------")
