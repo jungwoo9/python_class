@@ -1,0 +1,21 @@
+#241
+import datetime
+print(datetime.datetime.now())
+
+#242
+print(type(datetime.datetime.now()))
+
+#243
+def before_today(i):
+    diff_days = datetime.timedelta(days=i)
+    today = datetime.date.today()
+    date = today - diff_days
+    print(date)
+
+before_today(5)
+before_today(4)
+before_today(3)
+before_today(2)
+before_today(1)
+
+#244
