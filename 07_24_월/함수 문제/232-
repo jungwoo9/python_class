@@ -2,3 +2,6 @@ def make_url(string):
     print("www.", string, ".com")
 
 make_url("naver")
+"""
+use + instead of , and return instead of print
+"""

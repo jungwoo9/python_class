@@ -8,3 +8,6 @@ print (result)
 '''
 #4
 
+"""
+raise error not 4
+"""
