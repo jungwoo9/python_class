@@ -2,6 +2,7 @@
 numpy 없이 풀기!
 """
 
+'''
 import numpy as np
 
 A = np.array([[1, 2], [3, 4]])
@@ -10,3 +11,24 @@ B = np.array([[4, 5], [6, 7]])
 
 print(np.add(A, B))
 print(np.subtract(A, B))
+'''
+
+class Matrix(object):
+    def __init__(self, rows, cols=1, fill=0.):\
+        if isinstance(rows, list):
+            if isinstance(rows[0], list):
+                self.rows = [[e for e in row] for row in rows]
+            else:
+                self.rows = [[e] for e in rows]
+        elif isinstance(rows, int) and isinstance(cols, int):
+            if callable(fill):
+                self.rows = [[fill(r,c) for c in xcols] for r in xrows]
+            else:
+                self.rows = [[fill for c in xcols] for r in xrows]
+        else:
+            raise RuntimeError(f"Unable to build matrix from {rows}")
+        self.nrows = len(self.rows)
+        self.ncols = len(self.rows[0])
+
+A = Matrix(2, 2, fill=lambda r, c: 1, if r==c else 0.)
+print(A)
