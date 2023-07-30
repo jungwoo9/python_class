@@ -18,14 +18,12 @@ import constants as c
 2. add_two함수를 호출하여 2번 호출하여서 matrix에 숫자 2개가 랜덤하게 위치하도록 해주고
 3. matrix를 반환해주세요.
 """
-def new_game(n):
+def new_game():
     # 1
-    matrix = ...
+    matrix = ([0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0])
     
     # 2
-    matrix = ...
-    matrix = ...
-
+    add_two(mat)
     # 3
     return ...
 
@@ -43,19 +41,24 @@ def new_game(n):
 def add_two(mat):
     # 1
     # random의 randint를 이용하여 랜덤한 index 값 생성하기
-    a = ...
-    b = ...
+    a = 0
+    b = 0
+    c = 0
+    d = 0
 
     # 2
-    while ...:
-        a = ...
-        b = ...
+    while a==c and b==d:
+        a = random.randint(0,3)
+        b = random.randint(0,3)
+        c = random.randint(0,3)
+        d = random.randint(0,3)
     
     # 3
-    ...
+    matrix[a,b] = 2
+    matrix[c,d] = 2
 
     # 4
-    return ...
+    return mat
 
 ###########
 # Task 1c #
@@ -77,11 +80,17 @@ def game_state(mat):
     # check for win cell
     for i in range(len(mat)):
         for j in range(len(mat[0])):
-            ...
+            if mat == 2048:
+                mat = "win"
+            return
         
     # 2
     # check for any zero entries
-    ...
+    for i in range(len(mat)):
+        for j in range(len(mat[0])):
+            if mat == 0:
+                mat = "win"
+            return
 
     # 3-0
     # check for same cells that touch each other
@@ -89,18 +98,21 @@ def game_state(mat):
         # intentionally reduced to check the row on the right and below
         # more elegant to use exceptions but most likely this will be their solution
         for j in range(len(mat[0])-1):
-            ...
+            if mat(i,j) == mat(i+1,j) or mat(i,j) == mat(i,j+1):
+                mat = "not over"
             
     # 3-1
     for k in range(len(mat)-1):  # to check the left/right entries on the last row
-        ...
+        if mat(4,k) == mat(4,k+1):
+            mat = "not over"
 
     # 3-2
     for j in range(len(mat)-1):  # check up/down entries on last column
-        ...
+        if mat(j,4) == mat(j+1,4):
+            mat = "not over"
 
     # 4
-    return ...
+    return mat = "lose"
 
 ###########
 # Task 2a #
@@ -113,7 +125,11 @@ ex) [[1, 2], [3, 4]] -> [[2, 1], [4, 3]]
 """
 
 def reverse(mat):
-    ...
+    mat1 = ([0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0])
+    for i in range(len(mat)):
+        for j in range(len(mat[0])):
+            mat1(i, j) = mat(3-i,j)
+    return mat1 = mat
 
 ###########
 # Task 2b #
@@ -126,7 +142,11 @@ ex) [[1, 2], [3, 4]] -> [[1, 3], [2, 4]]
 """
 
 def transpose(mat):
-    ...
+    mat2 = ([0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0])
+    for i in range(len(mat)):
+        for j in range(len(mat[0])):
+            mat2(i, j) = mat(j,i)
+    return mat2 = mat
 
 ##########
 # Task 3 #
@@ -139,7 +159,7 @@ ex) [[0, 0, 1], [1, 0, 1], [0, 0, 1]] -> [[1, 0, 0], [1, 1, 0], [1, 0, 0]]
 
 def cover_up(mat):
     # mat와 같은 크기의 0으로 이루어진 행렬 생성하기
-    new = ...
+    new = ([0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0])
     done = False
 
     # 각 가로마다 0이 아닌 값이 있으면 왼쪽으로 붙여주기
@@ -147,8 +167,8 @@ def cover_up(mat):
         count = 0 # <- 0이 아닌 왼쪽으로 붙여진 값들이 얼마나 있는지 확인해주는 변수
         for j in range(c.GRID_LEN):
             # 0이 아닌 값이면 새로운 행렬 new에서 해당하는 가로줄의 제일 왼쪽에 위치한 곳에 값을 넣어준다
-            if ...:
-                ... # new[가로][젤 왼쪽]에 값 넣어주기
+            if mat(i,j) != 0:
+                new(count, j) # new[가로][젤 왼쪽]에 값 넣어주기
                 if j != count:
                     done = True
                 count += 1 # 값을 넣어주면 왼쪽으로 붙여진 값이 하나 늘어나서 1을 더해준다
@@ -161,11 +181,11 @@ ex) [[2, 2, 0, 0], [0, 0, 0, 0], [4, 2, 0, 0], [4, 4, 0, 0]] -> [[4, 0, 0, 0], [
 """
 
 def merge(mat, done):
-    for i in ...:
-        for j in ...:
-            if ...: # 왼쪽과 오른쪽의 값이 같고 왼쪽 값이 0이 아니다
-                ... # 왼쪽 칸에 2를 곱한 값 넣어준다
-                ... # 오른쪽 칸에 0을 넣어준다
+    for i in range(len(mat)-1):
+        for j in range(len(mat[0])):
+            if mat(i,j) == mat(i+1,j) and mat(i,j) !=0: # 왼쪽과 오른쪽의 값이 같고 왼쪽 값이 0이 아니다
+                mat(i,j) = mat(i,j) * 2 # 왼쪽 칸에 2를 곱한 값 넣어준다
+                mat(i+1,j) = 0 # 오른쪽 칸에 0을 넣어준다
                 done = True
     return mat, done
 
