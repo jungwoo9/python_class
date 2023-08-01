@@ -18,12 +18,13 @@ import constants as c
 2. add_two함수를 호출하여 2번 호출하여서 matrix에 숫자 2개가 랜덤하게 위치하도록 해주고
 3. matrix를 반환해주세요.
 """
-def new_game():
+def new_game(n): # n도 활용해주세요 ***********
     # 1
-    matrix = ([0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0])
+    matrix = ([0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0]) # <- for문 사용하셔서 작성해보세요 [0, 0, 0, 0]은 반복이라 [0] * 4로 할 수 있어요 그리고 4 대신 n을 이용해서 판의 크기가 달라도 실행되게끔 해주세요 ***********
     
     # 2
-    add_two(mat)
+    add_two(mat) # <- 함수를 불러준다음 새로운 mat를 변수에 넣어줘야해요. 그리고 함수 두번 호출해줘야해요 ***********
+    
     # 3
     return ...
 
@@ -38,23 +39,23 @@ def new_game():
 4. mat을 반환해주세요.
 """
 
-def add_two(mat):
+def add_two(mat): # 한번에 한 숫자만 넣는 함수에요! ***********
     # 1
     # random의 randint를 이용하여 랜덤한 index 값 생성하기
-    a = 0
+    a = 0 # random 라이브러리 이용하셔서 0부터 n-1까지의 랜덤 숫자 2개(가로, 세로) 생성해주세요 ***********
     b = 0
     c = 0
     d = 0
 
     # 2
-    while a==c and b==d:
+    while a==c and b==d: # mat[가로][세로]의 값이 0이 아니면 계속 반복하게 해주세요 ***********
         a = random.randint(0,3)
         b = random.randint(0,3)
         c = random.randint(0,3)
         d = random.randint(0,3)
     
     # 3
-    matrix[a,b] = 2
+    matrix[a,b] = 2 # 인덱싱은 matrix[a][b]로 해야해요 ***********
     matrix[c,d] = 2
 
     # 4
@@ -80,8 +81,8 @@ def game_state(mat):
     # check for win cell
     for i in range(len(mat)):
         for j in range(len(mat[0])):
-            if mat == 2048:
-                mat = "win"
+            if mat == 2048: # mat은 판 전체를 의미해요 ***********
+                mat = "win" # 'win' 문자열을 반환해야해요 ***********
             return
         
     # 2
@@ -98,12 +99,12 @@ def game_state(mat):
         # intentionally reduced to check the row on the right and below
         # more elegant to use exceptions but most likely this will be their solution
         for j in range(len(mat[0])-1):
-            if mat(i,j) == mat(i+1,j) or mat(i,j) == mat(i,j+1):
+            if mat(i,j) == mat(i+1,j) or mat(i,j) == mat(i,j+1): # 2중 리스트 인덱싱은 list[i][j] 이렇게 해요 ***********
                 mat = "not over"
             
     # 3-1
     for k in range(len(mat)-1):  # to check the left/right entries on the last row
-        if mat(4,k) == mat(4,k+1):
+        if mat(4,k) == mat(4,k+1): # 4 대신 판의 크기를 가져와서 판 크기가 달라도 정상적으로 실행되는 코드로 만들어주세요 ***********
             mat = "not over"
 
     # 3-2
@@ -128,8 +129,8 @@ def reverse(mat):
     mat1 = ([0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0])
     for i in range(len(mat)):
         for j in range(len(mat[0])):
-            mat1(i, j) = mat(3-i,j)
-    return mat1 = mat
+            mat1(i, j) = mat(3-i,j) # i가 가로 인덱스 j가 세로 인덱스에요. 그리고 3말고 크기에 상관없이 실행되는 코드로 작성해주세요 ***********
+    return mat1 = mat # 그냥 mat1을 반환하면 됩니다 ***********
 
 ###########
 # Task 2b #
@@ -168,7 +169,7 @@ def cover_up(mat):
         for j in range(c.GRID_LEN):
             # 0이 아닌 값이면 새로운 행렬 new에서 해당하는 가로줄의 제일 왼쪽에 위치한 곳에 값을 넣어준다
             if mat(i,j) != 0:
-                new(count, j) # new[가로][젤 왼쪽]에 값 넣어주기
+                new(count, j) # new[가로][젤 왼쪽]에 값 넣어주기 <- count는 세로 인덱스를 의미해요 ***********
                 if j != count:
                     done = True
                 count += 1 # 값을 넣어주면 왼쪽으로 붙여진 값이 하나 늘어나서 1을 더해준다
@@ -181,8 +182,8 @@ ex) [[2, 2, 0, 0], [0, 0, 0, 0], [4, 2, 0, 0], [4, 4, 0, 0]] -> [[4, 0, 0, 0], [
 """
 
 def merge(mat, done):
-    for i in range(len(mat)-1):
-        for j in range(len(mat[0])):
+    for i in range(len(mat)-1): # 가로 인덱스는 모두 살펴봐야해요 ***********
+        for j in range(len(mat[0])): # 세로 인덱스는 마지막칸은 안 봐도 되겠죠! ***********
             if mat(i,j) == mat(i+1,j) and mat(i,j) !=0: # 왼쪽과 오른쪽의 값이 같고 왼쪽 값이 0이 아니다
                 mat(i,j) = mat(i,j) * 2 # 왼쪽 칸에 2를 곱한 값 넣어준다
                 mat(i+1,j) = 0 # 오른쪽 칸에 0을 넣어준다
